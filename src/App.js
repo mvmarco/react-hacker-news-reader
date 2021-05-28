@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+// routes
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+// components
+import ForgotPassword from './components/authorizations/ForgotPassword';
+import Login from './components/authorizations/Login';
+import CreateLink from './components/links/CreateLink';
+import LinkDetail from './components/links/LinkDetail';
+import LinkList from './components/links/LinkList';
+import SearchLinks from './components/links/SearchLinks';
 
+import Header from './components/Header';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="app-container">
+        <Header />
+      </div>
+      <div className="router-container">
+        <Switch>
+          <Route exact path="/" render={()=> <Redirect to="/new/1"/>} />
+          <Route path="/create" component={CreateLink} />
+          <Route path="/search" component={SearchLinks} />
+          <Route path="/top" component={LinkList} />
+          <Route path="/new/:page" component={LinkList} />
+          <Route path="/login" component={Login} />
+          <Route path="/forgot" component={ForgotPassword} />
+          <Route path="/link/:linkID" component={LinkDetail} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
