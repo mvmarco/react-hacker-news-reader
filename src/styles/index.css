@@ -68,3 +68,54 @@
   margin: 0;
   border-radius: 50%;
 }
+
+/* Login Section */
+.login-section {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-title {
+  padding: 0.55rem;
+}
+
+input {
+  width: 50rem;
+  padding: 0.55rem;
+  margin: 0.55rem;
+  border-radius: 20px;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+.submit-button {
+  border-radius: 20px;
+  padding: 0.55rem;
+  margin-top: 1rem;
+  pointer-events: visible;
+  cursor: pointer;
+  background: white;
+  margin: 0.3rem;
+  width: 17rem;
+}
+.submit-button:hover {
+  background-color: #f4f4f2;
+}
+.account-button {
+  border-radius: 20px;
+  padding: 0.55rem;
+  margin-top: 1rem;
+  pointer-events: visible;
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.644);
+  margin: 0.3rem;
+  width: 17rem;
+}
+.account-button:hover {
+  background: rgb(0, 0, 0);
+}
