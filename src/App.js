@@ -15,9 +15,9 @@ function App() {
       <div className="app-container">
         <Header />
       </div>
-      <div className="router-container">
+      <div className="route-container">
         <Switch>
-          <Route exact path="/" render={()=> <Redirect to="/new/1"/>} />
+          <Route exact path="/" render={() => <Redirect to="/new/1" />} />
           <Route path="/create" component={CreateLink} />
           <Route path="/search" component={SearchLinks} />
           <Route path="/top" component={LinkList} />
