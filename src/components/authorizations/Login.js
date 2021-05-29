@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 };
 
 function Login(props) {
-  const { handleSubmit, handleChange, values } = useFormValidation(
+  const { handleChange, handleBlur, handleSubmit, errors, values, isSubmitting } = useFormValidation(
     INITIAL_STATE,
     validateLogin
   );
@@ -38,20 +38,28 @@ function Login(props) {
           type="email"
           placeholder="Your Email"
           autoComplete="off"
+          onBlur={handleBlur}
+          className={errors.email && "error-input"}
         />
+        {errors.email && <p className="error-text">{errors.email}</p>}
         <input
           name="password"
           values={values.password}
           onChange={handleChange}
           type="password"
           placeholder="Choose a Secure Password"
+          onBlur={handleBlur}
+          className={errors.password && "error-input"}
         />
+        {errors.password && <p className="error-text">{errors.password}</p>}
+
         <div>
-          <button type="submit" className="submit-button">
+          <button type="submit" className="submit-button" disabled={isSubmitting}
+          style={{background: isSubmitting ? "grey" : "blue"}}>
             Submit
           </button>
           <button
-            type="submit"
+            type="button"
             className="account-button"
             onClick={() => setLogin((prevLogin) => !prevLogin)}
           >

@@ -1,22 +1,51 @@
-import { useState } from "react";
+import React from "react";
 
-function useFormValidation(initialState) {
-  const [values, setValues] = useState(initialState);
+function useFormValidation(initialState, validate) {
+  const [values, setValues] = React.useState(initialState);
+  const [errors, setErrors] = React.useState({});
+  const [isSubmitting, setSubmitting] = React.useState(false);
 
+  React.useEffect(() => {
+    if (isSubmitting) {
+      const noErrors = Object.keys(errors).length === 0;
+      if (noErrors) {
+        console.log("authenticated", values);
+        setSubmitting(false);
+      } else {
+        setSubmitting(false);
+      }
+    }
+  }, [errors]);
 
   function handleChange(event) {
     event.persist();
-    setValues(previousValues => ({
+    setValues((previousValues) => ({
       ...previousValues,
-      [event.target.name] : event.target.value
-    }))
+      [event.target.name]: event.target.value,
+    }));
+  }
+
+  // validating values when user click outside of the container
+  function handleBlur(params) {
+    const validationErrors = validate(values);
+    setErrors(validationErrors);
   }
 
   function handleSubmit(event) {
-    event.preventDefault()
-    console.log({values})
+    event.preventDefault();
+    const validationErrors = validate(values);
+    setErrors(validationErrors);
+    setSubmitting(true);
+    console.log({ values });
   }
-  return { handleChange, handleSubmit, values}
+  return {
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    errors,
+    values,
+    isSubmitting,
+  };
 }
 
 export default useFormValidation;
