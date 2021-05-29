@@ -54,6 +54,9 @@
   color: black;
   text-decoration: none;
   font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bolder;
 }
 
 .header-name {
@@ -136,7 +139,16 @@ input {
 .account-button:hover {
   background: rgb(0, 0, 0);
 }
+.forgot-password {
+  padding: 1em 0;
+  text-decoration: none;
+}
 
+a:-webkit-any-link {
+  color: black;
+  cursor: pointer;
+  text-decoration: underline;
+}
 /* Errors section */
 .error-input {
   border: 2px solid red;
