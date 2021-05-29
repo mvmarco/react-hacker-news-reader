@@ -15,12 +15,15 @@ class Firebase {
       password
     );
     return newUser.user.updateProfile({
-      displayName: name
+      displayName: name,
     });
   }
 
   async login(email, password) {
     return await this.auth.signInWithEmailAndPassword(email, password);
+  }
+  async logout() {
+    await this.auth.signOut();
   }
 }
 
