@@ -1,5 +1,8 @@
 import React from "react";
+// custom hook
 import useFormValidation from "./useFormValidation";
+// validation function
+import validateLogin from "./validateLogin";
 
 const INITIAL_STATE = {
   name: "",
@@ -8,7 +11,10 @@ const INITIAL_STATE = {
 };
 
 function Login(props) {
-  const { handleSubmit, handleChange, values } = useFormValidation(INITIAL_STATE);
+  const { handleSubmit, handleChange, values } = useFormValidation(
+    INITIAL_STATE,
+    validateLogin
+  );
   // state
   const [login, setLogin] = React.useState(true); //input hidden if it is true
   return (
