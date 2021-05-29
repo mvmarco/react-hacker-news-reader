@@ -17,6 +17,7 @@ function useFormValidation(initialState, validate) {
     }
   }, [errors]);
 
+
   function handleChange(event) {
     event.persist();
     setValues((previousValues) => ({
@@ -26,7 +27,7 @@ function useFormValidation(initialState, validate) {
   }
 
   // validating values when user click outside of the container
-  function handleBlur(params) {
+  function handleBlur() {
     const validationErrors = validate(values);
     setErrors(validationErrors);
   }
@@ -39,11 +40,11 @@ function useFormValidation(initialState, validate) {
     console.log({ values });
   }
   return {
-    handleChange,
-    handleBlur,
     handleSubmit,
-    errors,
+    handleBlur,
+    handleChange,
     values,
+    errors,
     isSubmitting,
   };
 }

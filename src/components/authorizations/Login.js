@@ -11,10 +11,14 @@ const INITIAL_STATE = {
 };
 
 function Login(props) {
-  const { handleChange, handleBlur, handleSubmit, errors, values, isSubmitting } = useFormValidation(
-    INITIAL_STATE,
-    validateLogin
-  );
+  const {
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    errors,
+    values,
+    isSubmitting,
+  } = useFormValidation(INITIAL_STATE, validateLogin);
   // state
   const [login, setLogin] = React.useState(true); //input hidden if it is true
   return (
@@ -54,8 +58,12 @@ function Login(props) {
         {errors.password && <p className="error-text">{errors.password}</p>}
 
         <div>
-          <button type="submit" className="submit-button" disabled={isSubmitting}
-          style={{background: isSubmitting ? "grey" : "blue"}}>
+          <button
+            type="submit"
+            className="submit-button"
+            disabled={isSubmitting}
+            style={{ background: isSubmitting ? "grey" : "white" }}
+          >
             Submit
           </button>
           <button
