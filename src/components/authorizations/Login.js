@@ -31,7 +31,7 @@ function Login(props) {
           login
         ? await firebase.login(email, password)
         : await firebase.register(name, email, password);
-
+      props.history.push("/"); // pushing the user once logged to the homepage
     } catch (err) {
       console.log('autheticantion error', err)
       setFirebaseError(err.message)
