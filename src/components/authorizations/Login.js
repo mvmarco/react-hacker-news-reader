@@ -3,6 +3,8 @@ import React from "react";
 import useFormValidation from "./useFormValidation";
 // validation function
 import validateLogin from "./validateLogin";
+// firebase
+import firebase from "../../firebase";
 
 const INITIAL_STATE = {
   name: "",
@@ -18,9 +20,23 @@ function Login(props) {
     errors,
     values,
     isSubmitting,
-  } = useFormValidation(INITIAL_STATE, validateLogin);
+  } = useFormValidation(INITIAL_STATE, validateLogin, authenticateUser);
   // state
   const [login, setLogin] = React.useState(true); //input hidden if it is true
+  const [firebaseError, setFirebaseError] = React.useState(null)
+  // firebase autheticate user
+  async function authenticateUser() {
+    const { name, email, password } = values;
+    try {
+          login
+        ? await firebase.login(email, password)
+        : await firebase.register(name, email, password);
+
+    } catch (err) {
+      console.log('autheticantion error', err)
+      setFirebaseError(err.message)
+    }
+  }
   return (
     <div className="login-section">
       <h2 className="login-title">{login ? "Login" : "Create Account"}</h2>
@@ -56,6 +72,7 @@ function Login(props) {
           className={errors.password && "error-input"}
         />
         {errors.password && <p className="error-text">{errors.password}</p>}
+        {firebaseError && <p className="error-text">{firebaseError}</p>}
 
         <div>
           <button
