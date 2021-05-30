@@ -38,7 +38,7 @@ function CreateLink(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-column mt3">
+    <form onSubmit={handleSubmit} className="login-section">
       <input
         onChange={handleChange}
         value={values.description}
@@ -59,7 +59,7 @@ function CreateLink(props) {
         className={errors.url && "error-input"}
       />
       {errors.url && <p className="error-text">{errors.url}</p>}
-      <button className="button" type="submit">
+      <button className="account-button" type="submit">
         Submit
       </button>
     </form>

@@ -152,7 +152,7 @@ a:-webkit-any-link {
 /* Errors section */
 .error-input {
   border: 2px solid red;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 
 .error-text {
