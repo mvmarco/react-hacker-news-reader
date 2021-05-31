@@ -15,7 +15,11 @@ function Header() {
               Interflora hacker news
             </NavLink>
           </div>
+
           <div className="header-links">
+            <NavLink to="/api">Our external and important stories</NavLink>
+            <div className="divider">|</div>
+
             <NavLink to="/" className="header-link">
               Recent News
             </NavLink>
@@ -25,7 +29,7 @@ function Header() {
             </NavLink>
             <div className="divider">|</div>
             <NavLink to="/search" className="header-link">
-              searchBar
+              Search for News
             </NavLink>
             {user && (
               <>
@@ -41,8 +45,10 @@ function Header() {
               <>
                 <div className="header-name">{user.displayName}</div>
                 <div className="divider-logout">|</div>
-                <div className="header-link-logout"
-                 onClick={() => firebase.logout()}>
+                <div
+                  className="header-link-logout"
+                  onClick={() => firebase.logout()}
+                >
                   Logout
                 </div>
               </>

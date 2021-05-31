@@ -1,0 +1,32 @@
+.modalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modalBody {
+  padding: 30px;
+  width: 50%;
+  background-color: white;
+  position: relative;
+  height: 80vh;
+  overflow: auto;
+}
+.modalBody li {
+  padding: 10px;
+}
+
+.modalClose {
+  position: absolute;
+  top: 35px;
+  right: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}

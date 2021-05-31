@@ -13,6 +13,7 @@
   color: black;
   justify-content: space-between;
   display: flex;
+  margin-bottom: 1.1rem;
 }
 
 .header-links {
@@ -160,4 +161,132 @@ a:-webkit-any-link {
   padding: 0;
   color: red;
   font-style: bold;
+}
+
+/* pagination */
+.pagination {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.NextPrevious {
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 20px;
+  padding: 0.55rem;
+  margin-top: 1rem;
+  pointer-events: visible;
+  cursor: pointer;
+  background: #f4f4f2;
+  margin: 0.3rem;
+  width: 10rem;
+  text-align: center;
+}
+.NextPrevious:hover {
+  background: #c7ab6d;
+}
+
+/* links */
+.vote-button {
+  font-size: 16px;
+  color: #828282;
+  margin-left: 0.25rem;
+  cursor: pointer;
+}
+
+.link-container {
+  display: flex;
+  background-color: white;
+  white-space: nowrap;
+  padding: 0.55rem;
+  color: black;
+  margin: 0 1.1rem;
+}
+
+.gray {
+  color: #828282;
+}
+
+.up {
+  display: flex;
+  justify-content: center;
+}
+
+.details {
+  margin: 0 1rem;
+}
+.delete-button {
+  color: #c7ab6d;
+  cursor: pointer;
+}
+
+/* comments section */
+.text-area {
+  padding: 0.55rem;
+  margin: 1.1rem;
+}
+.comment-button {
+  border-radius: 20px;
+  padding: 0.55rem;
+  margin-top: 1rem;
+  pointer-events: visible;
+  cursor: pointer;
+  background: white;
+  margin: 1.1rem;
+  width: 17rem;
+}
+.comment-button:hover {
+  background-color: #f4f4f2;
+}
+
+.comment-author {
+  padding: 0.55rem;
+  margin: 1rem;
+  display: flex;
+  background-color: #f4f4f2;
+}
+
+.hacker-news-container {
+  padding: 0.55rem;
+  margin: 1rem;
+}
+
+.hacker-news-story {
+  padding: 0.55rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+.story-section {
+  padding: 0.55rem;
+  margin: 1rem;
+}
+
+/* search */
+.search-section {
+  padding: 0.55rem;
+  margin: 1rem;
+}
+.search-bar {
+  padding: 0.55rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.search-button {
+  border-radius: 20px;
+  padding: 0.55rem;
+  margin: 0 1rem;
+  pointer-events: visible;
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.644);
+  width: 17rem;
+}
+.search-button:hover {
+  background: rgb(0, 0, 0);
 }

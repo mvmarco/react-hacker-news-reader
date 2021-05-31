@@ -9,6 +9,7 @@ import LinkList from './components/links/LinkList';
 import SearchLinks from './components/links/SearchLinks';
 import useAuth from "./components/authorizations/useAuth";
 import Header from './components/Header';
+import Api from './components/hacker';
 //firebase
 import firebase, {FirebaseContext} from "./firebase";
 
@@ -23,6 +24,7 @@ function App() {
           <div className="route-container">
             <Switch>
               <Route exact path="/" render={() => <Redirect to="/new/1" />} />
+              <Route path="/api" component={Api} />
               <Route path="/create" component={CreateLink} />
               <Route path="/login" component={Login} />
               <Route path="/forgot" component={ForgotPassword} />
